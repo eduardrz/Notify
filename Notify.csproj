@@ -1,21 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{13FC7086-9F24-4E54-ABDC-897F8207F000}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{12E45872-B46B-4A96-912B-5459DB21112C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Notify</RootNamespace>
-    <AssemblyName>Notify</AssemblyName>
+    <RootNamespace>DrawerLayout_V7_Tutorial</RootNamespace>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
-    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AssemblyName>DrawerLayout_V7_Tutorial</AssemblyName>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,16 +25,16 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
     <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <ConsolePause>false</ConsolePause>
     <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
   </PropertyGroup>
   <ItemGroup>
@@ -42,56 +42,104 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="Mono.Data.Sqlite" />
-    <Reference Include="ModernHttpClient">
-      <HintPath>..\Components\modernhttpclient-2.4.2\lib\android\ModernHttpClient.dll</HintPath>
+    <Reference Include="Xamarin.Android.Support.v7.AppCompat">
+      <HintPath>..\..\..\..\Downloads\xamandroidsupportv7appcompat-21.0.3.0\xamandroidsupportv7appcompat-21.0.3.0\lib\android\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
     </Reference>
-    <Reference Include="OkHttp">
-      <HintPath>..\Components\modernhttpclient-2.4.2\lib\android\OkHttp.dll</HintPath>
+    <Reference Include="FortySevenDeg.SwipeListView">
+      <HintPath>..\Components\android-swipelistview-2.0.0\lib\android\FortySevenDeg.SwipeListView.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCL.raw">
+      <HintPath>..\packages\SQLitePCL.raw_basic.0.7.1\lib\MonoAndroid\SQLitePCL.raw.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.0.11\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.v4">
+      <HintPath>..\packages\Xamarin.Android.Support.v4.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.v4.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GestureListener.cs" />
+    <Compile Include="MyActionBarDrawerToggle.cs" />
+    <Compile Include="SwipeList.cs" />
+    <Compile Include="ListArchive.cs" />
+    <Compile Include="Archive.cs" />
+    <Compile Include="Persistencia\GeneralPreferencias.cs" />
+    <Compile Include="Datos\Usuario.cs" />
+    <Compile Include="Activity\MainActivity.cs" />
+    <Compile Include="Service\ServicioLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\mipmap-mdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\layout\MenuCustomLayout.axml" />
-    <AndroidResource Include="Resources\drawable\down_arrow.png" />
-    <AndroidResource Include="Resources\drawable\Icon.png" />
-    <AndroidResource Include="Resources\drawable\icon_aboutus.png" />
-    <AndroidResource Include="Resources\drawable\icon_client.png" />
-    <AndroidResource Include="Resources\drawable\icon_contactus.png" />
-    <AndroidResource Include="Resources\drawable\icon_event.png" />
-    <AndroidResource Include="Resources\drawable\icon_help.png" />
-    <AndroidResource Include="Resources\drawable\icon_home.png" />
-    <AndroidResource Include="Resources\drawable\icon_product.png" />
-    <AndroidResource Include="Resources\drawable\icon_service.png" />
-    <AndroidResource Include="Resources\drawable\icon_solution.png" />
-    <AndroidResource Include="Resources\drawable\menu_icon.png" />
-    <AndroidResource Include="Resources\drawable\up_arrow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\Icon.png" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_help.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_action_refresh.png" />
+    <AndroidResource Include="Resources\menu\action_menu.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\alertIcon.png" />
+    <AndroidResource Include="Resources\layout\ListLayout.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\background_item.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\background_new_tag.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\choice_selected.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\choice_unselected.xml" />
+    <AndroidResource Include="Resources\values\Colors.xml" />
+    <AndroidResource Include="Resources\values\Dimens.xml" />
+    <AndroidResource Include="Resources\values\Items.xml" />
+    <AndroidResource Include="Resources\drawable\background_item.xml" />
+    <AndroidResource Include="Resources\drawable\background_new_tag.xml" />
+    <AndroidResource Include="Resources\drawable\choice_selected.xml" />
+    <AndroidResource Include="Resources\drawable\choice_unselected.xml" />
+    <AndroidResource Include="Resources\layout\package_row.axml" />
+    <AndroidResource Include="Resources\layout\MenuActions.axml" />
+    <AndroidResource Include="Resources\drawable\er_logo.png" />
+    <AndroidResource Include="Resources\drawable\radius_button.xml" />
+    <AndroidResource Include="Resources\drawable\round_edittext.xml" />
+    <AndroidResource Include="Resources\drawable\logo.PNG" />
+    <AndroidResource Include="Resources\drawable\round_image.xml" />
+    <AndroidResource Include="Resources\drawable\logoazul.PNG" />
+    <AndroidResource Include="Resources\drawable\logofirma.png" />
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>
+    <Folder Include="Resources\menu\" />
     <Folder Include="Resources\drawable\" />
-    <Folder Include="Resources\mipmap-hdpi\" />
+    <Folder Include="Datos\" />
+    <Folder Include="Persistencia\" />
+    <Folder Include="Activity\" />
+    <Folder Include="Service\" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="modernhttpclient">
-      <Version>2.4.2</Version>
+    <XamarinComponentReference Include="android-swipelistview">
+      <Version>2.0.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="sqlite-net">
+      <Version>1.0.11</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamandroidsupportv4-18">
+      <Version>23.4.0.1</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="json.net">
+      <Version>7.0.1</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
